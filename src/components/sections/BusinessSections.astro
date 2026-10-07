@@ -1,0 +1,18 @@
+---
+import TagList from '../ui/TagList.astro';
+import { sectors, countrySectors } from '../../data/content';
+---
+<section id="pma"><div class="wrapper pma">
+  <div><h2>Build your company in Indonesia.</h2><p class="lead">Foreign investors who operate a business in Indonesia may need a PT PMA (Perseroan Terbatas Penanaman Modal Asing). We help you understand the environment before you commit.</p></div>
+  <ul><li>Initial business consultation</li><li>Business sector identification and activity classification</li><li>Company establishment coordination and corporate documents</li><li>Business licensing and OSS-related registration</li><li>Tax registration coordination</li><li>Business address support</li><li>Operational preparation and supporting professional services</li></ul>
+</div></section>
+<section class="alt"><div class="wrapper">
+  <h2>Where should you invest?</h2><p class="lead">We help you explore opportunities that match your interests, experience, capital and long-term goals.</p>
+  <TagList items={sectors} class="sectors" />
+  <div class="profile"><h3>Before we search, we learn your profile</h3><p>Investment budget, preferred industry, business experience, target location, expected investment scale, objectives and partnership preferences.</p></div>
+  <p class="lead disclaimer">Before investing, conduct legal, financial, tax, operational and commercial due diligence with qualified professionals.</p>
+</div></section>
+<section><div class="wrapper two countries">
+  <div><h2>Why Pakistan × Indonesia?</h2><p class="lead">Two markets with room for stronger connections. We aim to be the platform where entrepreneurs from both countries explore them.</p><TagList items={countrySectors} class="sectors" /></div>
+  <div><h2>Built for Pakistani investors and families.</h2><p class="lead">We assist Pakistani investors, entrepreneurs, business owners, company directors, professionals, families and companies exploring Indonesia.</p><p class="lead">Cross-border business is not only legal and financial. It is also culture, communication, trust, business etiquette and networks, and that is where a reliable local partner matters.</p></div>
+</div></section>

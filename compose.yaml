@@ -1,0 +1,22 @@
+services:
+  web:
+    container_name: pt-logitek-web
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8088:80"
+    networks:
+      - carubra-network
+      - uteroindonesia-network
+      - utero-id-network
+
+networks:
+  carubra-network:
+    external: true
+  uteroindonesia-network:
+    external: true
+  utero-id-network:
+    external: true
+

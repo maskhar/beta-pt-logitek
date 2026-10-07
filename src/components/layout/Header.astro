@@ -1,0 +1,27 @@
+---
+import Button from '../ui/Button.astro';
+---
+<header>
+  <div class="wrapper header-inner">
+    <a class="logo" href="#top" aria-label="PT Logitek home">PT LOGITEK<i>.</i></a>
+    <nav aria-label="Main navigation">
+      <a href="#about">About</a><a href="#services">Services</a><a href="#pma">PT PMA</a><a href="#process">Process</a><a href="#contact">Contact</a>
+    </nav>
+    <Button href="#contact">Book a consultation</Button>
+  </div>
+</header>
+
+<script>
+  document.querySelectorAll<HTMLAnchorElement>('header a[href^="#"]').forEach((link) => {
+    link.addEventListener('click', (event) => {
+      const targetId = link.hash.slice(1);
+      const target = document.getElementById(targetId);
+
+      if (!target) return;
+
+      event.preventDefault();
+      target.scrollIntoView({ behavior: 'auto', block: 'start' });
+      history.replaceState(null, '', `${location.pathname}${location.search}`);
+    });
+  });
+</script>

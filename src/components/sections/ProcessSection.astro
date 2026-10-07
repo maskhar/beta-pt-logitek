@@ -1,0 +1,7 @@
+---
+import { processSteps } from '../../data/content';
+---
+<section id="process" class="alt"><div class="wrapper">
+  <h2>From Pakistan to Indonesia in eight steps.</h2>
+  <ol class="steps">{processSteps.map(([title, body]) => <li><b>{title}</b><span>{body}</span></li>)}</ol>
+</div></section>

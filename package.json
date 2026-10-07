@@ -1,0 +1,19 @@
+{
+  "name": "pt-logitek-prototype",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev --host 0.0.0.0",
+    "build": "astro build",
+    "preview": "astro preview --host 0.0.0.0",
+    "check": "astro check",
+    "lint": "astro check"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.5",
+    "astro": "^7.3.6",
+    "playwright": "^1.55.1",
+    "typescript": "^5.9.3"
+  }
+}

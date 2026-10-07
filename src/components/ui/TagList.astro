@@ -1,0 +1,4 @@
+---
+const { items, class: className = 'tags' } = Astro.props;
+---
+<ul class={className}>{items.map((item: string) => <li>{item}</li>)}</ul>

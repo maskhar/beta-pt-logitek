@@ -1,0 +1,10 @@
+---
+import TagList from '../ui/TagList.astro';
+import { services } from '../../data/content';
+---
+<section id="services" class="alt"><div class="wrapper">
+  <h2>Seven services, one partner.</h2><p class="lead">Use one, or combine them into a single roadmap for your move to Indonesia.</p>
+  <div class="services-list">{services.map((service) => <article class="service-row">
+    <div><h3>{service.title}</h3></div><div><p>{service.description} {service.link && <a href="#pma">See what is included.</a>}</p>{service.tags && <TagList items={service.tags} />}</div>
+  </article>)}</div>
+</div></section>
