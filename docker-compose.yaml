@@ -1,3 +1,4 @@
+name: website-pt-logitek
 services:
   web:
     container_name: pt-logitek-web

@@ -1,27 +1,39 @@
 ---
 import Button from '../ui/Button.astro';
+import { navigation } from '../../data/content';
+const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
 ---
-<header>
+<header class="site-header" data-header>
   <div class="wrapper header-inner">
-    <a class="logo" href="#top" aria-label="PT Logitek home">PT LOGITEK<i>.</i></a>
-    <nav aria-label="Main navigation">
-      <a href="#about">About</a><a href="#services">Services</a><a href="#pma">PT PMA</a><a href="#process">Process</a><a href="#contact">Contact</a>
-    </nav>
-    <Button href="#contact">Book a consultation</Button>
+    <a class="logo" href="/" aria-label="PT Logitek home"><span class="logo-mark">L</span><span>PT LOGITEK<small>Communication Services</small></span></a>
+    <nav class="desktop-nav" aria-label="Main navigation">{navigation.map(([label, href]) => <a href={href} aria-current={currentPath === href ? 'page' : undefined}>{label}</a>)}</nav>
+    <div class="header-actions"><Button href="/contact" class="header-cta">Consultation details</Button><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open navigation" data-menu-toggle><span></span><span></span><span></span></button></div>
   </div>
+  <div class="mobile-panel" id="mobile-menu" hidden data-mobile-menu><nav class="mobile-nav" aria-label="Mobile navigation">{navigation.map(([label, href], index) => <a href={href} aria-current={currentPath === href ? 'page' : undefined}><span>0{index + 1}</span>{label}</a>)}</nav><Button href="/contact" class="mobile-cta">Consultation details</Button></div>
 </header>
-
 <script>
-  document.querySelectorAll<HTMLAnchorElement>('header a[href^="#"]').forEach((link) => {
-    link.addEventListener('click', (event) => {
-      const targetId = link.hash.slice(1);
-      const target = document.getElementById(targetId);
-
-      if (!target) return;
-
-      event.preventDefault();
-      target.scrollIntoView({ behavior: 'auto', block: 'start' });
-      history.replaceState(null, '', `${location.pathname}${location.search}`);
-    });
+  const header = document.querySelector<HTMLElement>('[data-header]');
+  const toggle = document.querySelector<HTMLButtonElement>('[data-menu-toggle]');
+  const menu = document.querySelector<HTMLElement>('[data-mobile-menu]');
+  const main = document.querySelector<HTMLElement>('main');
+  const footer = document.querySelector<HTMLElement>('footer');
+  const closeMenu = () => { if (!toggle || !menu) return; toggle.setAttribute('aria-expanded', 'false'); toggle.setAttribute('aria-label', 'Open navigation'); menu.hidden = true; document.body.classList.remove('menu-open'); if (main) main.inert = false; if (footer) footer.inert = false; };
+  toggle?.addEventListener('click', () => { if (!menu) return; const open = toggle.getAttribute('aria-expanded') !== 'true'; toggle.setAttribute('aria-expanded', String(open)); toggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation'); menu.hidden = !open; document.body.classList.toggle('menu-open', open); if (main) main.inert = open; if (footer) footer.inert = open; if (open) menu.querySelector<HTMLAnchorElement>('a')?.focus(); });
+  menu?.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
+  document.addEventListener('keydown', (event) => {
+    if (toggle?.getAttribute('aria-expanded') !== 'true') return;
+    if (event.key === 'Escape') { closeMenu(); toggle.focus(); }
+    if (event.key === 'Tab' && header) {
+      const focusable = [...header.querySelectorAll<HTMLElement>('a, button')].filter((item) => item.getBoundingClientRect().width > 0);
+      const first = focusable[0];
+      const last = focusable.at(-1);
+      if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus(); }
+      if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus(); }
+    }
   });
+  window.addEventListener('resize', () => { if (window.matchMedia('(min-width: 1101px)').matches) closeMenu(); });
+  const updateHeader = () => header?.classList.toggle('is-scrolled', window.scrollY > 12);
+  updateHeader();
+  window.addEventListener('pageshow', updateHeader);
+  window.addEventListener('scroll', updateHeader, { passive: true });
 </script>

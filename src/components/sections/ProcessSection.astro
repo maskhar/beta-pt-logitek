@@ -1,7 +1,4 @@
 ---
 import { processSteps } from '../../data/content';
 ---
-<section id="process" class="alt"><div class="wrapper">
-  <h2>From Pakistan to Indonesia in eight steps.</h2>
-  <ol class="steps">{processSteps.map(([title, body]) => <li><b>{title}</b><span>{body}</span></li>)}</ol>
-</div></section>
+<section class="process-section section-pad" id="process" aria-labelledby="process-title"><div class="wrapper"><div class="section-intro"><div><p class="eyebrow">The investor journey</p><h2 id="process-title">From first question<br />to <em>what's next.</em></h2></div><p>No two journeys look exactly alike. This is the path we use to turn possibilities into practical steps.</p></div><ol class="steps">{processSteps.map(([title, body], index) => <li><span class="step-number">{String(index + 1).padStart(2, '0')}</span><h3>{title}</h3><p>{body}</p></li>)}</ol></div></section>

@@ -1,20 +1,34 @@
 ---
 import Button from '../ui/Button.astro';
+import Icon from '../ui/Icon.astro';
 ---
-<div class="hero"><div class="wrapper hero-grid">
-  <div>
-    <h1>Indonesia starts here.<span>From Pakistan to Indonesia.</span></h1>
-    <p>PT Logitek Communication Services helps Pakistani investors, entrepreneurs and families enter, establish and grow in Indonesia, from visa to company to home.</p>
-    <div class="cta"><Button href="#contact">Start your Indonesia journey</Button><Button href="#services" variant="outline">See our services</Button></div>
+<section class="hero" id="top" aria-labelledby="hero-title">
+  <div class="wrapper hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow hero-eyebrow"><span class="eyebrow-line"></span> Your Indonesia partner · Malang, East Java</p>
+      <h1 id="hero-title">A clearer path to <em>Indonesia.</em></h1>
+      <p class="hero-lead">Foreign investor support, from your first conversation to building a life and business on the ground.</p>
+      <p class="hero-detail">Documents. Investment. Company setup. Partnerships. Relocation. One locally connected team to help you navigate what comes next.</p>
+      <div class="cta"><Button href="#contact" variant="gold">Consultation details</Button><Button href="#services" variant="light-outline">Explore our support</Button></div>
+      <div class="hero-footnote"><span class="hero-footnote-mark">01 / 03</span><span>For investors, entrepreneurs, professionals &amp; families</span></div>
+    </div>
+    <div class="hero-art" aria-label="Abstract architectural illustration representing Indonesia and a path forward" role="img">
+      <div class="art-grid"></div>
+      <div class="art-sun"></div>
+      <svg class="art-landscape" viewBox="0 0 600 590" fill="none" aria-hidden="true" preserveAspectRatio="xMidYMax slice">
+        <path d="M0 488C90 446 139 464 221 440c100-29 150-10 213-28 63-18 105-13 166 4v174H0V488Z" fill="#1B344B"/>
+        <path d="M0 517c99-28 150-17 237-39 105-27 218-13 363-42v154H0v-73Z" fill="#142B40"/>
+        <path d="M0 550c136-13 219-42 304-37 118 7 196-20 296-37v114H0v-40Z" fill="#102538"/>
+        <path d="M93 476V299h24v-32h112v32h24v163m-156-163h152M147 267v-37h55v37m-28-37V201" stroke="#B79B67" stroke-width="1.5"/>
+        <path d="M115 326h116m-116 39h116m-116 39h116m-116 39h116M137 302v144m71-144v144" stroke="#B79B67" stroke-opacity=".65" stroke-width="1"/>
+        <path d="M280 461V322l82-38 82 38v133M280 322h164m-140 27h116m-116 34h116m-116 34h116m-116 34h116m-91-132v132m66-132v132" stroke="#B79B67" stroke-width="1.3"/>
+        <path d="M453 447V298h98v152m-98-128h98m-98 29h98m-98 29h98m-98 29h98m-73-111v149m48-149v149" stroke="#B79B67" stroke-opacity=".75" stroke-width="1.3"/>
+        <path d="M0 502c94-41 204-37 293-21 111 20 207 5 307-33" stroke="#C5A269" stroke-opacity=".7" stroke-width="1.5"/>
+      </svg>
+      <div class="art-coordinate">08° 08′ S<br />112° 38′ E</div>
+      <div class="art-label"><span class="art-label-dot"></span><span>ROOTED IN INDONESIA<small>Malang · East Java</small></span><Icon name="compass" size={27} /></div>
+      <div class="art-edge">LOCAL INSIGHT / GLOBAL AMBITION</div>
+    </div>
   </div>
-  <div class="route" aria-label="Route between Pakistan and Indonesia">
-    <svg viewBox="0 0 560 330" role="img" aria-labelledby="route-title">
-      <title id="route-title">An arc from Pakistan to Malang, Indonesia</title>
-      <path class="arc" d="M70 70 C 200 -10, 400 20, 480 250" fill="none" stroke="var(--red)" stroke-width="3" stroke-linecap="round" />
-      <circle cx="70" cy="70" r="11" fill="var(--green)" /><circle cx="480" cy="250" r="11" fill="var(--red)" />
-      <text x="70" y="108" text-anchor="middle">Pakistan</text><text class="sub" x="70" y="126" text-anchor="middle">Investors &amp; families</text>
-      <text x="480" y="288" text-anchor="middle">Malang, Indonesia</text><text class="sub" x="480" y="306" text-anchor="middle">Your Indonesia Desk</text>
-    </svg>
-  </div>
-</div></div>
-<div class="strip"><div class="wrapper"><span>Immigration</span><span>Business</span><span>Investment</span><span>Relocation</span><span>Partnership</span></div></div>
+  <div class="hero-bottom"><div class="wrapper"><span>INDONESIA DESK</span><span class="hero-bottom-rule"></span><span>INVESTMENT · BUSINESS · LIVING</span><span class="hero-bottom-number">01 — 04</span></div></div>
+</section>

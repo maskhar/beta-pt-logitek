@@ -1,0 +1,97 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import Button from '../components/ui/Button.astro';
+import InnerPageHero from '../components/ui/InnerPageHero.astro';
+
+const deskSupport = [
+  'Find an investment opportunity',
+  'Meet a potential business partner',
+  'Search for a company location',
+  'Find a home or school',
+  'Arrange business meetings',
+  'Understand local business conditions',
+  'Visit potential locations',
+  'Coordinate administrative requirements',
+];
+
+const supportAreas = [
+  ['Business', 'Company establishment, location research and operational preparation.'],
+  ['Investment', 'Profile-led opportunity exploration and local introductions.'],
+  ['Immigration', 'Document and residence-process coordination for the intended activity.'],
+  ['Expatriate support', 'Housing, schools, orientation and practical family settlement.'],
+];
+---
+
+<BaseLayout title="About PT Logitek | Your Indonesia Desk" description="Meet PT Logitek Communication Services, an Indonesia-based business, investment, immigration and expatriate support company in Malang, East Java.">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <Header />
+  <main id="main-content">
+    <InnerPageHero eyebrow="About PT Logitek" title="Local understanding. Practical connection." description="Based in Malang, East Java, PT Logitek Communication Services supports foreign investors, entrepreneurs, professionals and families as they explore, establish and settle in Indonesia." />
+
+    <section class="inner-section about-intro" aria-labelledby="local-partner-title">
+      <div class="wrapper inner-grid intro-grid">
+        <div>
+          <p class="eyebrow">Who we are</p>
+          <h2 id="local-partner-title">Your local partner<br />in <em>Indonesia.</em></h2>
+        </div>
+        <div class="intro-copy">
+          <p>Entering a new country takes more than a passport, a visa or a business license. It requires an understanding of regulations, markets, locations, culture, communication, people and trust.</p>
+          <p>PT Logitek is an Indonesia-based business, investment, immigration and expatriate support company. Our role is to help clients connect these moving parts into a clear, consultation-led roadmap.</p>
+          <p><strong>We help clients prepare not only to arrive, but to establish themselves with stronger local context.</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="support-section inner-section" aria-labelledby="support-title">
+      <div class="wrapper">
+        <div class="section-intro inner-intro">
+          <div><p class="eyebrow">What we do</p><h2 id="support-title">One relationship.<br /><em>Four connected areas.</em></h2></div>
+          <p>Business decisions, documentation and family needs often overlap. PT Logitek coordinates across the wider journey while specialist legal, tax and financial decisions remain with qualified professionals.</p>
+        </div>
+        <div class="support-grid">
+          {supportAreas.map(([title, body], index) => <article class="inner-card"><span>0{index + 1}</span><h3>{title}</h3><p>{body}</p></article>)}
+        </div>
+      </div>
+    </section>
+
+    <section class="desk-section inner-section" aria-labelledby="desk-title">
+      <div class="wrapper desk-page-grid">
+        <div class="desk-copy">
+          <p class="eyebrow eyebrow-gold">Your Indonesia Desk</p>
+          <h2 id="desk-title">A team on the ground.<br /><em>Before you arrive.</em></h2>
+          <p>The Indonesia Desk means one local coordination point for practical questions, introductions, visits and preparation. Support is shaped around the client's goals and agreed scope.</p>
+          <Button href="/contact" variant="gold">Consultation details</Button>
+        </div>
+        <div class="desk-panel inner-card">
+          <div class="desk-panel-head"><span>PT LOGITEK / INDONESIA DESK</span><span>MALANG</span></div>
+          <ul>{deskSupport.map((item, index) => <li><span>{String(index + 1).padStart(2, '0')}</span>{item}</li>)}</ul>
+          <p>LOCAL COORDINATION · MEETINGS · RESEARCH · SETTLEMENT</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="inner-section corridor-section" aria-labelledby="corridor-title">
+      <div class="wrapper inner-grid corridor-grid">
+        <div class="corridor-mark" aria-hidden="true"><span>PK</span><i></i><span>ID</span></div>
+        <div>
+          <p class="eyebrow">Pakistan × Indonesia</p>
+          <h2 id="corridor-title">A valued cross-border<br /><em>specialization.</em></h2>
+          <p>PT Logitek's perspective includes a particular connection between Pakistan and Indonesia. We support the communication, business etiquette, networks and practical context that matter across this corridor, while welcoming clients from around the world.</p>
+          <Button href="/contact" variant="text">Discuss your plans</Button>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .about-intro{background:var(--paper)}.intro-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(50px,9vw,140px)}.intro-copy{padding-top:35px;border-top:1px solid var(--border)}.intro-copy p{margin-bottom:22px;color:var(--muted);font-size:1.02rem}.intro-copy strong{color:var(--ink)}
+  .support-section{background:var(--cream)}.support-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--border);border-left:1px solid var(--border)}.support-grid article{min-height:270px;padding:28px;border-right:1px solid var(--border);border-bottom:1px solid var(--border)}.support-grid article>span{color:var(--red);font-size:.62rem;font-weight:700;letter-spacing:.12em}.support-grid h3{margin-top:72px;font-size:1.45rem}.support-grid p{margin-top:14px;color:var(--muted);font-size:.84rem;line-height:1.65}
+  .desk-page-grid{position:relative;display:grid;grid-template-columns:.85fr 1.15fr;align-items:center;gap:clamp(50px,8vw,120px)}.desk-copy>p:not(.eyebrow){max-width:570px;margin:25px 0 30px;color:rgba(255,255,255,.7)}.desk-panel{padding:clamp(24px,4vw,42px);border:1px solid rgba(197,162,105,.4);background:rgba(9,21,33,.55)}.desk-panel-head,.desk-panel>p{display:flex;justify-content:space-between;color:var(--gold-light);font-size:.56rem;letter-spacing:.15em}.desk-panel ul{margin:25px 0;padding:0;border-top:1px solid rgba(255,255,255,.16);list-style:none}.desk-panel li{display:grid;grid-template-columns:42px 1fr;gap:10px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.13);font-family:var(--font-display);font-size:1rem}.desk-panel li span{color:var(--gold);font:600 .58rem var(--font-body);letter-spacing:.12em}
+  .corridor-section{background:var(--paper)}.corridor-grid{display:grid;grid-template-columns:.8fr 1.2fr;align-items:center;gap:clamp(50px,9vw,140px)}.corridor-grid>div:last-child>p:not(.eyebrow){max-width:650px;margin:25px 0;color:var(--muted)}.corridor-mark{display:flex;align-items:center;justify-content:center;min-height:340px;border:1px solid var(--border);background:var(--cream);color:var(--navy);font:700 clamp(2.4rem,5vw,4.8rem) var(--font-display)}.corridor-mark i{width:26%;height:1px;margin:0 20px;background:var(--red);position:relative}.corridor-mark i::after{position:absolute;right:0;top:-4px;width:9px;height:9px;border-radius:50%;background:var(--red);content:""}
+  @media(max-width:820px){.intro-grid,.desk-page-grid,.corridor-grid{grid-template-columns:1fr}.support-grid{grid-template-columns:repeat(2,1fr)}.corridor-mark{min-height:240px}}
+  @media(max-width:560px){.support-grid{grid-template-columns:1fr}.support-grid article{min-height:230px}.support-grid h3{margin-top:50px}.desk-panel-head{gap:20px}.corridor-mark{min-height:190px}}
+</style>

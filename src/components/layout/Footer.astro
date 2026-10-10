@@ -1,4 +1,5 @@
-<footer><div class="wrapper">
-  <p><b>PT Logitek Communication Services</b> &middot; Indonesia Business, Investment &amp; Expatriate Assistance</p>
-  <p>University Village B-18, Tirtomoyo, Pakis, Malang, East Java, Indonesia. &copy; 2026 PT Logitek Communication Services. All rights reserved.</p>
-</div></footer>
+---
+import Button from '../ui/Button.astro';
+import { navigation } from '../../data/content';
+---
+<footer class="site-footer"><div class="wrapper footer-main"><div><a class="logo footer-logo" href="/"><span class="logo-mark">L</span><span>PT LOGITEK<small>Communication Services</small></span></a><p>Your local coordination partner for investing, establishing and settling in Indonesia.</p></div><nav aria-label="Footer navigation">{navigation.slice(1).map(([label, href]) => <a href={href}>{label}</a>)}</nav><div class="footer-action"><p>Planning your Indonesia journey?</p><Button href="/contact" variant="gold">View consultation details</Button></div></div><div class="wrapper footer-bottom"><p>University Village B-18, Tirtomoyo, Pakis, Malang, East Java, Indonesia.</p><p>&copy; 2026 PT Logitek Communication Services.</p></div></footer>

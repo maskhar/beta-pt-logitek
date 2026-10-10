@@ -1,0 +1,112 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import InnerPageHero from '../components/ui/InnerPageHero.astro';
+
+const discussionTopics = [
+  'A planned visit to Indonesia',
+  'Investor visa and document needs',
+  'PT PMA company establishment',
+  'Investment objectives and business sector',
+  'Business location or partner search',
+  'Relocation, housing and schools',
+  'Family settlement in Indonesia',
+];
+
+const consultationSteps = [
+  ['Tell us your goal', 'Share what you plan to visit, explore, establish or arrange in Indonesia.'],
+  ['Profile review', 'Your objectives, sector, location and family requirements shape the discussion.'],
+  ['Initial consultation', 'The team reviews priorities, document readiness and areas needing specialist advice.'],
+  ['Indonesia roadmap', 'A recommended scope can then be agreed without promising approvals or outcomes.'],
+];
+---
+
+<BaseLayout title="Contact PT Logitek | Consultation in Indonesia" description="Review PT Logitek's consultation process for investment, PT PMA, immigration, business locations or family relocation in Indonesia.">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <Header />
+  <main id="main-content">
+    <InnerPageHero eyebrow="Contact & consultation" title="Start with your goal. Build the right roadmap." description="A consultation is the starting point for understanding your objectives, current readiness and the support that may be relevant." ctaLabel="" />
+
+    <section class="appointment-section">
+      <div class="wrapper appointment-wrap">
+        <div class="appointment-card inner-notice">
+          <div class="appointment-label"><span class="status-dot"></span><p>CONSULTATION BY APPOINTMENT</p></div>
+          <strong>Contact channels pending publication.</strong>
+          <small>Phone, WhatsApp, email and online booking details are not yet available. Review consultation topics and office location below.</small>
+        </div>
+      </div>
+    </section>
+
+    <section class="inner-section discussion-section" aria-labelledby="discuss-title">
+      <div class="wrapper inner-grid discussion-grid">
+        <div>
+          <p class="eyebrow">What we can discuss</p>
+          <h2 id="discuss-title">Bring the plan.<br /><em>We map the questions.</em></h2>
+          <p class="section-copy">You do not need to know every requirement before the first conversation. Start with the outcome you are exploring and the facts already available.</p>
+        </div>
+        <ol class="topic-list">
+          {discussionTopics.map((topic, index) => <li><span>{String(index + 1).padStart(2, '0')}</span>{topic}</li>)}
+        </ol>
+      </div>
+    </section>
+
+    <section class="journey-section inner-section" aria-labelledby="journey-title">
+      <div class="wrapper">
+        <div class="section-intro inner-intro">
+          <div><p class="eyebrow">Consultation journey</p><h2 id="journey-title">A clear first<br /><em>four steps.</em></h2></div>
+          <p>Each case depends on purpose, applicant profile, document readiness and professional review. The consultation defines a realistic scope; it does not guarantee an approval or investment outcome.</p>
+        </div>
+        <ol class="journey-grid">
+          {consultationSteps.map(([title, body], index) => <li class="inner-card"><span>0{index + 1}</span><h3>{title}</h3><p>{body}</p></li>)}
+        </ol>
+      </div>
+    </section>
+
+    <section class="inner-section office-section" aria-labelledby="office-title">
+      <div class="wrapper inner-grid office-grid">
+        <div>
+          <p class="eyebrow">Office location</p>
+          <h2 id="office-title">Our base in<br /><em>Malang.</em></h2>
+          <p class="section-copy">This office address is the only contact information currently available in project material.</p>
+        </div>
+        <div class="office-content">
+          <div class="office-card inner-card">
+            <span>PT LOGITEK COMMUNICATION SERVICES</span>
+            <h3>Indonesia office</h3>
+            <address>University Village B-18<br />Desa Tirtomoyo, Kec. Pakis<br />Kab. Malang, Jawa Timur<br />Indonesia</address>
+            <div class="channel-status">
+              <strong>Digital contact pending publication</strong>
+              <p>A contact form is not active because no working backend or verified destination exists. Phone, WhatsApp, email, representative names and business hours are intentionally not shown.</p>
+            </div>
+          </div>
+          <div class="office-map">
+            <iframe title="Map showing PT Logitek office area in Malang" src="https://www.google.com/maps?q=University%20Village%20B-18%2C%20Tirtomoyo%2C%20Pakis%2C%20Malang%2C%20East%20Java%2C%20Indonesia&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <a href="https://www.google.com/maps/search/?api=1&amp;query=University%20Village%20B-18%2C%20Tirtomoyo%2C%20Pakis%2C%20Malang%2C%20East%20Java%2C%20Indonesia" target="_blank" rel="noopener noreferrer">Open location in Google Maps <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="consultation-note">
+      <div class="wrapper note-grid">
+        <strong>Important to know</strong>
+        <p>Services are handled by consultation. Government, translation, notarization and third-party fees may be separate unless otherwise agreed. Final scope depends on document readiness and case needs. Legal, tax, licensing and financial decisions should be reviewed with qualified professionals.</p>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .appointment-section{padding:0 0 clamp(32px,4vw,56px);background:var(--navy);color:var(--white)}.appointment-wrap{display:block}
+  .appointment-card{display:grid;grid-template-columns:minmax(210px,.7fr) minmax(270px,1fr) minmax(320px,1.3fr);align-items:center;gap:clamp(24px,4vw,58px);padding:clamp(24px,3vw,34px);border:1px solid rgba(197,162,105,.4);background:rgba(9,21,33,.45)}.appointment-label{display:flex;align-items:center;gap:14px}.appointment-card .status-dot{display:block;flex:none;width:9px;height:9px;border-radius:50%;background:var(--red);box-shadow:0 0 0 6px rgba(194,57,54,.15)}.appointment-card p{color:var(--gold-light);font-size:.58rem;font-weight:700;letter-spacing:.15em}.appointment-card strong{font-family:var(--font-display);font-size:1.35rem;line-height:1.2}.appointment-card small{display:block;color:rgba(255,255,255,.68);line-height:1.6}
+  .discussion-section{background:var(--paper)}.discussion-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(50px,9vw,140px)}.section-copy{max-width:590px;margin-top:25px;color:var(--muted)}.topic-list{margin:0;padding:0;border-top:1px solid var(--border);list-style:none}.topic-list li{display:grid;grid-template-columns:50px 1fr;align-items:center;min-height:67px;border-bottom:1px solid var(--border);font-family:var(--font-display);font-size:1.12rem;font-weight:600}.topic-list span{color:var(--red);font:700 .6rem var(--font-body);letter-spacing:.12em}
+  .journey-section{background:var(--cream)}.journey-grid{display:grid;grid-template-columns:repeat(4,1fr);margin:0;padding:0;border-top:1px solid var(--border);border-left:1px solid var(--border);list-style:none}.journey-grid li{min-height:275px;padding:28px;border-right:1px solid var(--border);border-bottom:1px solid var(--border)}.journey-grid li>span{color:var(--red);font-size:.62rem;font-weight:700;letter-spacing:.12em}.journey-grid h3{margin-top:72px;font-size:1.4rem}.journey-grid p{margin-top:14px;color:var(--muted);font-size:.83rem;line-height:1.65}
+  .office-section{background:var(--paper)}.office-grid{display:grid;grid-template-columns:.55fr 1.45fr;align-items:start;gap:clamp(40px,6vw,90px)}.office-content{display:grid;grid-template-columns:minmax(340px,.95fr) minmax(380px,1.05fr);gap:20px}.office-card{height:100%;padding:clamp(30px,3vw,42px);border-top:4px solid var(--red);background:var(--cream)}.office-card>span{color:var(--red-dark);font-size:.58rem;font-weight:700;letter-spacing:.14em}.office-card h3{margin-top:27px;font-size:2rem}.office-card address{margin-top:20px;color:var(--muted);font-style:normal;line-height:1.8}.channel-status{margin-top:34px;padding-top:25px;border-top:1px solid var(--border)}.channel-status strong{font-size:.78rem;letter-spacing:.07em;text-transform:uppercase}.channel-status p{margin-top:9px;color:var(--muted);font-size:.8rem;line-height:1.65}.office-map{display:grid;min-width:0;border:1px solid var(--border);background:var(--cream)}.office-map iframe{display:block;width:100%;min-height:430px;border:0}.office-map a{display:flex;min-height:52px;align-items:center;justify-content:space-between;gap:18px;padding:12px 18px;border-top:1px solid var(--border);color:var(--red-dark);font-size:.72rem;font-weight:700;letter-spacing:.05em;text-decoration:none;text-transform:uppercase}.office-map a:hover{text-decoration:underline;text-underline-offset:4px}
+  .consultation-note{padding:38px 0;background:var(--red-dark);color:var(--white)}.note-grid{display:grid;grid-template-columns:190px 1fr;gap:35px}.note-grid strong{color:var(--gold-light);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase}.note-grid p{max-width:900px;color:rgba(255,255,255,.7);font-size:.78rem;line-height:1.7}
+  @media(max-width:1200px){.office-grid{grid-template-columns:1fr}.office-content{grid-template-columns:minmax(280px,.85fr) minmax(340px,1.15fr)}}
+  @media(max-width:1100px){.appointment-card{grid-template-columns:minmax(210px,.7fr) 1fr}.appointment-card small{grid-column:1/-1}}
+  @media(max-width:820px){.discussion-grid,.office-grid{grid-template-columns:1fr}.appointment-card{grid-template-columns:1fr;gap:16px}.appointment-card small{grid-column:auto}.journey-grid{grid-template-columns:repeat(2,1fr)}.office-content{grid-template-columns:1fr}.office-map iframe{min-height:360px}}
+  @media(max-width:560px){.appointment-card{padding:22px}.journey-grid{grid-template-columns:1fr}.journey-grid li{min-height:230px}.journey-grid h3{margin-top:50px}.office-map iframe{min-height:300px}.note-grid{grid-template-columns:1fr;gap:12px}}
+</style>

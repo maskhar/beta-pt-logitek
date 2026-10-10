@@ -1,51 +1,57 @@
-export const services = [
-  {
-    title: 'Immigration & visa assistance',
-    description: 'We prepare, organize and coordinate the immigration process for your intended activity in Indonesia, whether you are exploring, investing or settling.',
-    tags: ['Visa', 'KITAS', 'KITAP', 'Investor stay permit', 'Family / dependent', 'Supporting documents'],
-  },
-  {
-    title: 'PT PMA company establishment',
-    description: 'From initial consultation to licensing and operational preparation, we coordinate setting up your foreign investment company.',
-    link: true,
-  },
-  {
-    title: 'Business & investment sourcing',
-    description: 'We build your investment profile, then search for new ventures or existing businesses open to investment, partnership, joint venture or acquisition exploration.',
-    tags: ['Equity participation', 'Joint venture', 'Business expansion', 'Acquisition exploration'],
-  },
-  {
-    title: 'Matchmaking & partner search',
-    description: 'We connect Pakistani and Indonesian businesses, and introduce you to the right people so both sides can explore cooperation on their own terms.',
-    tags: ['Business partners', 'Suppliers', 'Distributors', 'Property owners', 'Manufacturers', 'Consultants'],
-  },
-  {
-    title: 'Property & location assistance',
-    description: 'Location research, preliminary surveys, property visits and coordination for your business premises, plus homes for you and your family.',
-    tags: ['Offices', 'Retail', 'Restaurants', 'Warehouses', 'Land', 'Apartments', 'Houses & villas'],
-  },
-  {
-    title: 'Family relocation & schools',
-    description: 'We help your family settle: accommodation, healthcare and transport information, local orientation, and school comparisons by location, curriculum, tuition and facilities.',
-    tags: ['International schools', 'National Plus', 'Islamic schools', 'Preschool to university'],
-  },
-  {
-    title: 'Representative & partner support',
-    description: 'A local presence when you cannot be here, within an agreed and legally permitted scope. Our support continues after your visa is issued and your company is established.',
-    tags: ['Meeting coordination', 'Location surveys', 'Supplier communication', 'Market research', 'Negotiation assistance', 'Progress reporting'],
-  },
+export const navigation = [
+  ['Home', '/'], ['Services', '/services'], ['Investment', '/investment'],
+  ['Investor Guide', '/investor-checklist'], ['Relocation', '/relocation'],
+  ['About', '/about'], ['Contact', '/contact'],
+];
+
+export const valuePropositions = [
+  { icon: 'landmark', title: 'Invest in Indonesia', body: 'Explore company setup, locations and opportunities with local coordination.' },
+  { icon: 'home', title: 'Live comfortably', body: 'Prepare housing, residence administration, schools and family settlement.' },
+  { icon: 'handshake', title: 'Build partnerships', body: 'Meet potential partners, suppliers and professional support networks.' },
+  { icon: 'compass', title: 'Start with confidence', body: 'Turn your objectives into a practical, consultation-led Indonesia roadmap.' },
+];
+
+export const servicePillars = [
+  { icon: 'concierge', title: 'Investor hospitality support', body: 'Arrival planning, meetings and on-the-ground coordination.', href: '/services' },
+  { icon: 'key', title: 'Residence & living support', body: 'Residence administration and practical settlement guidance.', href: '/relocation' },
+  { icon: 'search', title: 'Investment opportunity search', body: 'Profile-led opportunity and business location exploration.', href: '/investment' },
+  { icon: 'school', title: 'School placement support', body: 'School comparisons based on family needs and location.', href: '/relocation' },
+  { icon: 'building', title: 'Office / ruko search', body: 'Research and visits for offices, shop houses and premises.', href: '/investment' },
+  { icon: 'chart', title: 'Business expansion assistance', body: 'Local preparation for companies exploring Indonesian growth.', href: '/investment' },
+  { icon: 'handshake', title: 'Local partnership support', body: 'Introductions and coordination for credible business conversations.', href: '/about' },
+  { icon: 'family', title: 'Family relocation support', body: 'Housing, orientation and coordinated family settlement.', href: '/relocation' },
+];
+
+export const documentChecklist = [
+  'Valid passport', 'Sponsor application letter', 'Sponsor guarantee letter',
+  'Sponsor ID card / company legal documents', 'Proof of residential address in Indonesia',
+  'Supporting documents based on purpose', 'Proof of shareholding / investment',
+  'Company deed & business licenses', 'Bank statement / financial support documents',
+  'Marriage certificate, if applicable', 'Employment contract, if applicable',
+  'Company deed / investment deed, if applicable',
+];
+
+export const investmentSupport = [
+  'Initial consultation & profile review', 'PT PMA company setup assistance',
+  'Investment opportunity matching', 'Business location search',
+  'Local business partner matching', 'Business expansion assistance',
+];
+
+export const serviceBreadth = [
+  'Passport & document preparation guidance', 'Investor visa application support',
+  'KITAS / e-ITAS processing support', 'Sponsor / guarantee document drafting',
+  'Residence administration support', 'House / apartment search assistance',
+  'Shop house / office space search', 'School search assistance',
+  'Family settlement assistance',
 ];
 
 export const processSteps = [
-  ['Initial consultation', 'Tell us whether you plan to visit, invest, establish, relocate or explore.'],
-  ['Client profiling', 'We map your objectives, investment range, sector, family and relocation needs.'],
-  ['Indonesia roadmap', 'A recommended path across immigration, business, investment and relocation.'],
-  ['Preparation', 'Documents, business information, locations and professional coordination.'],
-  ['Arrival in Indonesia', 'Local orientation and coordination on the ground.'],
-  ['Exploration', 'Visit businesses, partners, suppliers, locations and opportunities.'],
-  ['Establishment', 'Proceed after professional review and due diligence.'],
-  ['Long-term support', 'We stay on as your local coordination and business partner.'],
+  ['Initial consultation', 'Define your plan to visit, invest, establish, relocate or explore.'],
+  ['Client profiling', 'Map objectives, sector, investment range and family needs.'],
+  ['Indonesia roadmap', 'Build a coordinated path across documents, business and relocation.'],
+  ['Preparation', 'Organize documents, locations, meetings and professional support.'],
+  ['Arrival', 'Receive practical orientation and local coordination.'],
+  ['Exploration', 'Visit businesses, partners, suppliers and potential locations.'],
+  ['Establishment', 'Proceed after appropriate review and due diligence.'],
+  ['Long-term support', 'Maintain a reliable local coordination relationship.'],
 ];
-
-export const sectors = ['Food & Beverage', 'Hospitality', 'Property', 'Trading', 'Manufacturing', 'Technology', 'Creative Industry', 'Retail', 'Tourism', 'Agriculture', 'Education', 'Professional Services'];
-export const countrySectors = ['Trade', 'Textile', 'Food & Beverage', 'Hospitality', 'Tourism', 'Agriculture', 'Technology', 'Education'];

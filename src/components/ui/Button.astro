@@ -1,4 +1,4 @@
 ---
-const { href, variant = 'primary' } = Astro.props;
+const { href, variant = 'primary', class: className = '' } = Astro.props;
 ---
-<a class:list={['btn', { outline: variant === 'outline' }]} href={href}><slot /></a>
+<a class:list={['btn', `btn-${variant}`, className]} href={href}><span><slot /></span><svg aria-hidden="true" viewBox="0 0 20 20"><path d="M4 10h11M11 6l4 4-4 4" /></svg></a>

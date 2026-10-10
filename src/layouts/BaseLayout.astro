@@ -1,6 +1,12 @@
 ---
 import '../styles/global.css';
-const { title, description } = Astro.props;
+const { title, description, noindex = false } = Astro.props;
+const canonical = new URL(Astro.url.pathname.replace(/\/$/, '') || '/', Astro.site);
+const organization = {
+  '@context': 'https://schema.org', '@type': 'Organization',
+  name: 'PT Logitek Communication Services', url: Astro.site,
+  address: { '@type': 'PostalAddress', streetAddress: 'University Village B-18, Tirtomoyo, Pakis', addressLocality: 'Malang', addressRegion: 'East Java', addressCountry: 'ID' },
+};
 ---
 <!doctype html>
 <html lang="en">
@@ -8,13 +14,23 @@ const { title, description } = Astro.props;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, follow" />}
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="PT Logitek Communication Services" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#F5F8F6" />
-    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#08201A" />
+    <meta name="theme-color" content="#101F30" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
     <title>{title}</title>
+    <script type="application/ld+json" set:html={JSON.stringify(organization)} />
   </head>
   <body><slot /></body>
 </html>

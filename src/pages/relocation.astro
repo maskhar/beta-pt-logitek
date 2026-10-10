@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import Button from '../components/ui/Button.astro';
+import Icon from '../components/ui/Icon.astro';
+import InnerPageHero from '../components/ui/InnerPageHero.astro';
+
+const relocationAreas = [
+  { icon: 'key', title: 'Residence & documents', body: 'Coordinate immigration and residence requirements for your intended activity, including family or dependent needs.' },
+  { icon: 'home', title: 'A place to live', body: 'Explore apartments, houses or villas through location research, preliminary surveys and property visits.' },
+  { icon: 'school', title: 'Schools & learning', body: 'Compare schools by location, curriculum, tuition and facilities, from preschool through university.' },
+  { icon: 'family', title: 'Everyday settlement', body: 'Get local orientation and information on healthcare, transport and practical family needs.' },
+];
+---
+<BaseLayout title="Relocation & Family Support | PT Logitek" description="Practical relocation coordination in Indonesia: residence needs, housing, school comparisons, orientation and family settlement.">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <Header />
+  <main id="main-content">
+    <div id="top"><InnerPageHero eyebrow="PT Logitek / Relocation" title="Make room for a new life here." description="Moving to Indonesia involves more than arrival. We help coordinate the practical decisions that let you and your family settle with clarity." /></div>
+
+    <section class="services-section inner-section" id="services" aria-labelledby="services-title"><div class="wrapper"><div class="section-intro inner-intro"><div><p class="eyebrow">Relocation support</p><h2 id="services-title">The details that<br /><em>make a difference.</em></h2></div><p>Support is shaped by your family, location and intended activity. Begin with the areas that matter most to your move.</p></div><div class="relocation-grid inner-grid">{relocationAreas.map((area, index) => <article class="relocation-card inner-card"><div class="relocation-card-top"><Icon name={area.icon} size={27} /><span>{String(index + 1).padStart(2, '0')}</span></div><h3>{area.title}</h3><p>{area.body}</p></article>)}</div></div></section>
+
+    <section class="checklist-section inner-section" id="guide" aria-labelledby="guide-title"><div class="wrapper checklist-grid inner-grid"><div class="checklist-copy inner-intro"><p class="eyebrow">Plan around your family</p><h2 id="guide-title">A move that fits<br /><em>your needs.</em></h2><p>Share your intended activity, preferred location, accommodation needs and school priorities. We can coordinate a practical path across residence administration, housing and local orientation.</p><div class="guide-callout inner-notice"><span class="guide-callout-icon" aria-hidden="true">i</span><p>Immigration and supporting documents depend on <strong>your purpose and applicant profile.</strong> Confirm requirements before making plans.</p></div><div class="inner-links"><Button href="/investor-checklist#guide" variant="text">See document checklist</Button></div></div><div class="checklist-card inner-card"><div class="checklist-card-head"><div><span>PT LOGITEK / FAMILY RELOCATION</span><h3>What we can explore</h3></div></div><ul>{['Residence administration', 'House or apartment search', 'Location research and visits', 'School comparisons', 'Healthcare and transport information', 'Local orientation'].map((item, index) => <li><span class="check-circle"><Icon name="check" size={16} /></span><span>{item}</span><small>{String(index + 1).padStart(2, '0')}</small></li>)}</ul><div class="checklist-card-foot">CONSULTATION LED <span>Scope depends on your circumstances</span></div></div></div></section>
+
+    <section class="investment-section inner-section" id="investment" aria-labelledby="investment-title"><div class="wrapper investment-grid inner-grid"><div class="investment-copy inner-intro"><p class="eyebrow eyebrow-gold">Life &amp; business together</p><h2 id="investment-title">A local partner<br /><em>beyond arrival.</em></h2><p>For investors and entrepreneurs, relocation may run alongside business exploration, company establishment, meetings and location search. We help bring those conversations together.</p><div class="inner-links"><Button href="#contact" variant="gold">Consultation details</Button></div></div><div class="investment-list"><div class="investment-list-heading"><span>COORDINATION AREAS</span><span>01 / 04</span></div>{['Arrival & local orientation', 'Business meetings & locations', 'Housing & family settlement', 'Ongoing local coordination'].map((item, index) => <div class="investment-item"><span>{String(index + 1).padStart(2, '0')}</span><h3>{item}</h3><Icon name="check" size={20} /></div>)}</div></div></section>
+
+    <section class="contact-section inner-section inner-cta" id="contact" aria-labelledby="contact-title"><div class="wrapper contact-grid inner-grid"><div id="about" class="inner-intro"><p class="eyebrow">PT Logitek / Malang, East Java</p><h2 id="contact-title">Talk through<br /><em>your move.</em></h2><p>PT Logitek supports investors, professionals and families settling in Indonesia. Consultations are available by appointment.</p><div class="contact-availability"><span class="availability-dot"></span> CONSULTATION BY APPOINTMENT</div></div><div class="contact-card inner-card"><span class="contact-card-label">PT LOGITEK COMMUNICATION SERVICES</span><h3>Our base in Indonesia</h3><address>University Village B-18<br />Desa Tirtomoyo, Kec. Pakis<br />Kab. Malang, Jawa Timur<br />Indonesia</address><div class="contact-status"><strong>Contact channels pending verification</strong><p>Phone, WhatsApp, email and representative details have not been supplied. No booking or message submission is available yet.</p></div></div></div></section>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .relocation-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border-top:1px solid var(--border);border-left:1px solid var(--border)}
+  .relocation-card{min-height:300px;padding:28px;border-right:1px solid var(--border);border-bottom:1px solid var(--border)}
+  .relocation-card-top{display:flex;justify-content:space-between;color:var(--red)}.relocation-card-top span{color:var(--gold);font-size:.65rem;font-weight:700;letter-spacing:.12em}
+  .relocation-card h3{margin-top:65px;font-size:1.5rem;line-height:1.12}.relocation-card p{margin-top:14px;color:var(--muted);font-size:.86rem;line-height:1.6}
+  @media(max-width:1100px){.relocation-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.relocation-grid{grid-template-columns:1fr}.relocation-card{min-height:240px}.relocation-card h3{margin-top:48px}}
+</style>

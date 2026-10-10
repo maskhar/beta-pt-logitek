@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import Button from '../components/ui/Button.astro';
+import InnerPageHero from '../components/ui/InnerPageHero.astro';
+
+const establishment = [
+  'Initial business consultation', 'Business sector identification and activity classification',
+  'Company establishment and corporate documentation coordination', 'Business licensing and OSS-related registration',
+  'Tax registration coordination', 'Business address support', 'Operational preparation and supporting professional services',
+];
+const journey = [
+  ['Initial consultation', 'Discuss your intended activity and priorities.'],
+  ['Investor profile', 'Clarify budget, experience, objectives and preferred location.'],
+  ['Sector & business objective', 'Identify the activity and business direction to explore.'],
+  ['Opportunity & location exploration', 'Research potential ventures and suitable locations.'],
+  ['Partner matching', 'Arrange relevant introductions where needed.'],
+  ['Professional due diligence', 'Review legal, financial, tax, operational and commercial considerations with qualified professionals.'],
+  ['PT PMA coordination', 'Coordinate establishment and related documentation where appropriate.'],
+  ['Operational & local support', 'Plan practical next steps for local operations.'],
+];
+const sectors = ['Food & Beverage', 'Hospitality', 'Property', 'Trading', 'Manufacturing', 'Technology', 'Creative Industry', 'Retail', 'Tourism', 'Agriculture', 'Education', 'Professional Services'];
+---
+<BaseLayout title="Investment & PT PMA Support | PT Logitek" description="Explore consultation-led investment opportunities, partner and location search, and PT PMA company establishment coordination in Indonesia.">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <Header />
+  <main id="main-content">
+    <InnerPageHero eyebrow="Investment & company establishment" title="Build with purpose in Indonesia." description="Explore opportunities, partnerships and a possible PT PMA (foreign investment company) with local coordination shaped by your goals." />
+    <section class="inner-section" aria-labelledby="profile-title"><div class="wrapper intro-grid inner-grid"><div><p class="eyebrow">Start with your profile</p><h2 id="profile-title">Understand the plan<br /><em>before the search.</em></h2></div><div><p>Useful opportunities begin with a clear investor profile. In consultation, we discuss your investment budget, preferred industry, business experience, target location, expected investment scale, objectives and partnership preferences. These details guide which opportunities and locations merit further exploration.</p><a class="text-link inner-links" href="/services">Explore all services ↗</a></div></div></section>
+    <section class="inner-section establishment" aria-labelledby="pma-title"><div class="wrapper intro-grid inner-grid"><div><p class="eyebrow eyebrow-gold">PT PMA support</p><h2 id="pma-title">From idea to<br /><em>local presence.</em></h2><p>Foreign investors operating a business in Indonesia may need a PT PMA. We coordinate relevant establishment steps and conversations; requirements depend on the intended activity and circumstances.</p></div><div><h3>Areas we can coordinate</h3><ul>{establishment.map((item, index) => <li><span>{String(index + 1).padStart(2, '0')}</span>{item}</li>)}</ul></div></div></section>
+    <section class="inner-section opportunities" aria-labelledby="opportunities-title"><div class="wrapper"><div class="section-intro inner-intro"><div><p class="eyebrow">Investment exploration</p><h2 id="opportunities-title">Find the right<br /><em>conversations.</em></h2></div><p>Support may include investment opportunity matching, local partner search, business location search and business expansion assistance. Exploration does not guarantee a suitable opportunity or outcome.</p></div><h3>Areas you may explore</h3><p class="sector-intro">Sector options depend on your profile and applicable requirements; these are examples, not recommendations.</p><ul class="sectors">{sectors.map((sector) => <li class="inner-card">{sector}</li>)}</ul></div></section>
+    <section class="inner-section journey" aria-labelledby="journey-title"><div class="wrapper"><p class="eyebrow">A considered journey</p><h2 id="journey-title">From first conversation<br /><em>to next steps.</em></h2><ol class="steps">{journey.map(([title, body], index) => <li class="inner-card"><span class="step-number">{String(index + 1).padStart(2, '0')}</span><h3>{title}</h3><p>{body}</p></li>)}</ol></div></section>
+    <section class="inner-section inner-notice caution" aria-labelledby="diligence-title"><div class="wrapper intro-grid inner-grid"><div><p class="eyebrow">Before committing</p><h2 id="diligence-title">Due diligence<br /><em>matters.</em></h2></div><div><p>Before making an investment, conduct appropriate legal, financial, tax, operational and commercial due diligence with qualified professionals. PT Logitek coordinates support; it does not replace lawyers, tax advisers, licensed professionals or government agencies.</p><Button href="/#contact">View consultation details</Button></div></div></section>
+  </main>
+  <Footer />
+</BaseLayout>
+<script>
+  document.querySelectorAll<HTMLAnchorElement>('.site-header a[href^="#"], .site-footer a[href^="#"]').forEach((link) => {
+    link.href = `/${link.getAttribute('href')}`;
+  });
+  document.querySelectorAll<HTMLAnchorElement>('.site-header a').forEach((link) => {
+    if (link.textContent?.trim() === 'Services') link.href = '/services';
+    if (link.textContent?.trim() === 'Investment') { link.href = '/investment'; link.setAttribute('aria-current', 'page'); }
+  });
+</script>
+<style>
+  .intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,7vw,110px)}.intro-grid>div:last-child>p{color:var(--muted)}.text-link{display:inline-block;margin-top:26px;color:var(--red-dark);font-size:.85rem;font-weight:700;text-underline-offset:5px}
+  .establishment{background:var(--red-dark);color:var(--white)}.establishment h2 em{color:var(--gold-light)}.establishment .intro-grid>div:first-child>p:last-child{max-width:500px;margin-top:28px;color:rgba(255,255,255,.78)}.establishment h3{margin-bottom:24px;font-size:1.7rem}.establishment ul{margin:0;padding:0;list-style:none;border-top:1px solid rgba(255,255,255,.3)}.establishment li{display:grid;grid-template-columns:38px 1fr;gap:14px;padding:17px 0;border-bottom:1px solid rgba(255,255,255,.2)}.establishment li span{color:var(--gold-light);font-size:.7rem}
+  .opportunities{background:var(--paper)}.opportunities h3{font-size:1.7rem}.sector-intro{margin-top:14px;color:var(--muted)}.sectors{display:flex;flex-wrap:wrap;gap:10px;margin:26px 0 0;padding:0;list-style:none}.sectors li{padding:10px 16px;border:1px solid var(--border);background:var(--cream);font-size:.85rem}
+  .journey{background:var(--cream)}.journey .steps{margin-top:45px}.caution{background:var(--paper)}.caution .btn{margin-top:28px}
+  @media(max-width:820px){.intro-grid{grid-template-columns:1fr}.establishment h3{margin-top:10px}}
+</style>

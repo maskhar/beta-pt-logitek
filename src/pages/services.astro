@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import Button from '../components/ui/Button.astro';
+import InnerPageHero from '../components/ui/InnerPageHero.astro';
+
+const groups = [
+  { title: 'Getting started', intro: 'Define your plans and prepare the documents that shape your next steps.', items: [
+    ['Initial Consultation & Profile Review', 'Discuss your objectives, circumstances and the support you may need.'],
+    ['Passport & Document Preparation Guidance', 'Review the documents relevant to your intended journey.'],
+  ] },
+  { title: 'Immigration & residency', intro: 'Coordinate applications and residence-related paperwork for your circumstances.', items: [
+    ['Investor Visa Application Support', 'Prepare and coordinate investor visa application requirements.'],
+    ['KITAS / e-ITAS Processing Support', 'Coordinate stay permit documentation and processing support.'],
+    ['Sponsor / Guarantee Document Drafting', 'Assist with relevant sponsor and guarantee documentation.'],
+    ['Residence Administration Support', 'Help navigate practical residence administration needs.'],
+  ] },
+  { title: 'Business & investment', intro: 'Explore opportunities, establish a business presence and find suitable connections.', items: [
+    ['PT PMA Company Setup Assistance', 'Coordinate foreign investment company establishment steps.'],
+    ['Investment Opportunity Matching', 'Explore opportunities informed by your investor profile.'],
+    ['Shop House / Office Space Search', 'Research premises suited to your business plans.'],
+    ['Business Location Search Assistance', 'Explore locations against your business objectives.'],
+    ['Local Business Partner Matching', 'Coordinate introductions to potential local partners.'],
+  ] },
+  { title: 'Living & relocation', intro: 'Make room for everyday life alongside your business plans.', items: [
+    ['House / Apartment Search Assistance', 'Explore homes aligned with your location and family needs.'],
+    ['School Search Assistance', 'Compare school options relevant to your family.'],
+    ['Family Settlement Assistance', 'Coordinate practical support as your family settles in Indonesia.'],
+  ] },
+];
+---
+<BaseLayout title="Services | PT Logitek Communication Services" description="Explore PT Logitek's consultation-led immigration, PT PMA, investment, housing and family relocation support in Indonesia.">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <Header />
+  <main id="main-content">
+    <InnerPageHero eyebrow="How we help" title="Support for every next step." description="From first consultation and documentation to investment, business establishment and family settlement, we coordinate practical support around your plans for Indonesia." />
+    <section class="inner-section services-section" aria-labelledby="overview-title"><div class="wrapper">
+      <div class="section-intro"><div><p class="eyebrow">Our services</p><h2 id="overview-title">One journey.<br /><em>Many moving parts.</em></h2></div><p>Choose the areas relevant to you. Final scope depends on your documents and case needs.</p></div>
+      {groups.map((group, groupIndex) => <section class="service-group inner-grid" aria-labelledby={`group-${groupIndex}`}>
+        <div class="group-heading"><div><p class="eyebrow">0{groupIndex + 1} / 04</p><h3 id={`group-${groupIndex}`}>{group.title}</h3></div><p>{group.intro}</p></div>
+        <ul class="group-list">{group.items.map(([title, description], index) => <li><span class="item-index">{String(index + 1).padStart(2, '0')}</span><div><h4>{title}</h4><p>{description}</p></div>{groupIndex === 2 && <a href="/investment">Explore investment support <span aria-hidden="true">↗</span></a>}</li>)}</ul>
+      </section>)}
+    </div></section>
+    <section class="inner-section inner-notice consultation-section" aria-labelledby="terms-title"><div class="wrapper consultation-grid"><div><p class="eyebrow">Important to know</p><h2 id="terms-title">Clear scope<br /><em>from the start.</em></h2></div><div><p>Services are handled by consultation, by appointment. Government fees, translation, notarization and third-party charges may be separate unless otherwise agreed. Final handling depends on document readiness and case needs.</p><Button href="/contact">View consultation details</Button></div></div></section>
+  </main>
+  <Footer />
+</BaseLayout>
+<style>
+  .service-group{margin-top:70px}.group-heading{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:end;margin-bottom:24px}.group-heading h3{font-size:clamp(2rem,3vw,3rem)}.group-heading>p{max-width:470px;color:var(--muted)}.group-list{margin:0;padding:0;border-top:1px solid var(--border);list-style:none}.group-list li{display:grid;grid-template-columns:50px minmax(0,1fr) auto;gap:20px;align-items:center;padding:23px 0;border-bottom:1px solid var(--border)}.item-index{color:var(--red-dark);font-size:.72rem;font-weight:700}.group-list h4{margin:0;font-family:var(--font-display);font-size:1.3rem;line-height:1.2}.group-list p{margin-top:7px;color:var(--muted);font-size:.9rem}.group-list a{color:var(--red-dark);font-size:.75rem;font-weight:700;text-decoration-thickness:1px;text-underline-offset:4px}
+  .consultation-section{background:var(--cream)}.consultation-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px}.consultation-grid>div:last-child p{max-width:580px;color:var(--muted)}.consultation-grid .btn{margin-top:28px}
+  @media(max-width:700px){.group-heading,.consultation-grid{grid-template-columns:1fr;gap:18px}.group-list li{grid-template-columns:30px 1fr}.group-list a{grid-column:2}.service-group{margin-top:55px}}
+</style>

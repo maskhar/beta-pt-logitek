@@ -1,10 +1,5 @@
 ---
-import TagList from '../ui/TagList.astro';
-import { services } from '../../data/content';
+import Icon from '../ui/Icon.astro';
+import { servicePillars, serviceBreadth } from '../../data/content';
 ---
-<section id="services" class="alt"><div class="wrapper">
-  <h2>Seven services, one partner.</h2><p class="lead">Use one, or combine them into a single roadmap for your move to Indonesia.</p>
-  <div class="services-list">{services.map((service) => <article class="service-row">
-    <div><h3>{service.title}</h3></div><div><p>{service.description} {service.link && <a href="#pma">See what is included.</a>}</p>{service.tags && <TagList items={service.tags} />}</div>
-  </article>)}</div>
-</div></section>
+<section class="services-section section-pad" id="services" aria-labelledby="services-title"><div class="wrapper"><div class="section-intro"><div><p class="eyebrow">How we help</p><h2 id="services-title">We can handle<br /><em>what comes next.</em></h2></div><div><p>Eight ways to make your Indonesia plans more practical. Select the support you need; we shape the details together.</p><span class="consultation-chip">ALL SERVICES · BY CONSULTATION</span></div></div><div class="services-grid">{servicePillars.map((item, index) => <a class="service-card" href={item.href} aria-label={`Explore ${item.title}`}><div class="service-card-top"><Icon name={item.icon} size={29} /><span>0{index + 1}</span></div><h3>{item.title}</h3><p>{item.body}</p><span class="service-link">Explore support <span aria-hidden="true">↗</span></span></a>)}</div><div class="service-breadth"><div><p class="eyebrow">More ways we can assist</p><h3>Practical help in the details.</h3></div><ul>{serviceBreadth.map((item) => <li>{item}</li>)}</ul></div></div></section>

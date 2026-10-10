@@ -1,0 +1,11 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import InnerPageHero from '../components/ui/InnerPageHero.astro';
+---
+<BaseLayout title="Page Not Found | PT Logitek" description="The requested PT Logitek page could not be found." noindex>
+  <a class="skip-link" href="#main-content">Skip to main content</a><Header />
+  <main id="main-content"><InnerPageHero eyebrow="404 · Page not found" title="This route does not lead where expected." description="Return home or explore our services for foreign investors, businesses and families in Indonesia." ctaLabel="Return home" ctaHref="/" /></main>
+  <Footer />
+</BaseLayout>
